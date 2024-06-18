@@ -5,12 +5,14 @@ import "./App.css";
 import FirstComponent from "./components/FirstComponent";
 import SecondComponente from "./components/SecondComponente";
 
-
 // desestrututando props
-import Destructuring from "./components/Destructuring";
-import State from "./components/State";
+import Destructuring, { Category } from "./components/Destructuring";
 
 // usestate
+import State from "./components/State";
+// Type
+type textOrNull = string | null;
+type fixed = "oi" | "tchau";
 
 function App() {
   // variaveis
@@ -22,6 +24,14 @@ function App() {
   const useGreeting = (name: string): string => {
     return `Olá, ${name}`;
   };
+
+  // type
+  const myText: textOrNull = "Algum texto por aqui";
+  let mySecondText: textOrNull = null;
+
+  mySecondText = "Hello World";
+
+  const testandoFixed: fixed = "oi";
 
   return (
     <div className="App">
@@ -37,9 +47,11 @@ function App() {
         content="Conteúdo"
         commentQty={14}
         tags={["ts", "js"]}
+        category={Category.TS}
       />
-      <State/>
-
+      <State />
+      {myText && <p>Tem texto na variavel</p>}
+      {mySecondText && <p>Tem texto na variavel 2</p>}
     </div>
   );
 }
